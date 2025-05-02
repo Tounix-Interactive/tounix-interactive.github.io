@@ -1,0 +1,152 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 10%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 45 100% 50%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 10%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 45 100% 50%;
+    --input: 0 0% 15%;
+    --ring: 45 100% 50%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .hero-title {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold;
+    text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-6;
+    text-shadow: 0 0 5px rgba(234, 179, 8, 0.3);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(90deg, #ffd700 0%, #ffb700 50%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .futuristic-border {
+    @apply border border-primary/50 rounded-md relative overflow-hidden;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+  }
+  
+  .futuristic-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    animation: borderFlow 3s linear infinite;
+  }
+  
+  .game-card {
+    @apply futuristic-border bg-card p-4 transition-all duration-300;
+    backdrop-filter: blur(10px);
+  }
+  
+  .game-card:hover {
+    @apply transform scale-105;
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-foreground hover:text-primary transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .tech-pill {
+    @apply px-3 py-1 rounded-full text-xs font-medium bg-secondary text-primary border border-primary/30;
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glowing {
+  box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+  animation: pulse 3s infinite;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(234, 179, 8, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 179, 8, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
