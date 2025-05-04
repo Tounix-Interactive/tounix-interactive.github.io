@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";  // Importer Link depuis React Router
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,12 +25,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Accueil", href: "#home" },
-    { name: "Jeux", href: "#games" },
-    { name: "Studio", href: "#studio" },
-    { name: "Technologies", href: "#tech" },
-    { name: "Équipe", href: "#team" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil", href: "/" },
+    { name: "Jeux", href: "/games" },  // Le lien vers la page des jeux
+    { name: "Studio", href: "/studio" },
+    { name: "Technologies", href: "/tech" },
+    { name: "Équipe", href: "/team" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const navVariants = {
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <a href="#home" className="flex items-center">
-                <span className="text-2xl font-bold gold-gradient">NexusGames</span>
+                <span className="text-2xl font-bold gold-gradient">Tounix-Interactive</span>
                 <span className="ml-1 text-xs text-primary">STUDIO</span>
               </a>
             </div>
@@ -61,16 +61,16 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="nav-link"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Button variant="default" className="ml-4">
-                Démo Gratuite
+                Nous Rejoindre
               </Button>
             </div>
           </div>
@@ -100,17 +100,17 @@ const Navbar = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/90 backdrop-blur-md border-b border-primary/20">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <Button variant="default" className="w-full mt-4">
-            Démo Gratuite
+            Nous Rejoindre
           </Button>
         </div>
       </motion.div>

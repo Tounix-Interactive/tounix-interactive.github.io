@@ -81,7 +81,7 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <a href="#games" aria-label="Scroll down">
+        <a href="/games" aria-label="Scroll down">
          <ChevronDown className="h-8 w-8 text-primary hover:text-primary/80 transition-colors" />
         </a>
       </motion.div>
