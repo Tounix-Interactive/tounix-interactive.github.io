@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <a href="#home" className="flex items-center">
+              <a href="/" className="flex items-center">
                 <span className="text-2xl font-bold gold-gradient">Tounix-Interactive</span>
                 <span className="ml-1 text-xs text-primary">STUDIO</span>
               </a>
@@ -69,9 +69,15 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="default" className="ml-4">
-                Nous Rejoindre
-              </Button>
+              <a
+                 href="https://linktr.ee/TounixItc"
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 <Button variant="default" className="ml-4">
+                   Nous Rejoindre
+                 </Button>
+               </a>
             </div>
           </div>
 
@@ -109,9 +115,15 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Button variant="default" className="w-full mt-4">
-            Nous Rejoindre
-          </Button>
+          <a
+             href="https://linktr.ee/TounixItc"
+             target="_blank"
+             rel="noopener noreferrer"
+           >
+             <Button variant="default" className="w-full mt-4">
+               Nous Rejoindre
+             </Button>
+           </a>
         </div>
       </motion.div>
     </nav>

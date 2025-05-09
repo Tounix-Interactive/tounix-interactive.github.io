@@ -1,25 +1,42 @@
 import React from 'react';
 
-const games = [
-  {
-    image: '/images/game1.jpg',
-    title: 'AutoBahn 🏎️ ',
-    description: 'Autobahn Plonge dans l\'enfer de l\'autoroute allemande à pleine vitesse ! Slalome entre les voitures, évite les crashs, et pousse ta conduite au maximum. Autobahn est un jeu d\'arcade nerveux où chaque seconde compte. Plus tu vas vite, plus tu marques de points... mais attention au moindre faux pas. ➜ Jouer',
-  },
-];
-
 const Games = () => {
+  const games = [
+    {
+      title: 'AutoBahn',
+      description: 'Un jeu de course futuriste ultra-rapide sur des autoroutes néon suspendues. Dominez la vitesse, esquivez les obstacles et explorez un monde cybernétique stylisé.',
+      imageUrl: 'URL_image_jeu_1',
+      link: '/autobahn', // Lien vers la page détaillée du jeu
+    },
+  ];
+
   return (
-    <div className="p-6 space-y-6">
-      {games.map((game, index) => (
-        <Games
-          key={index}
-          image={game.image}
-          title={game.title}
-          description={game.description}
-        />
-      ))}
-    </div>
+    <section className="games-section py-20">
+      <div className="container mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+          Nos Jeux
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          {games.map((game, index) => (
+            <div key={index} className="game-card p-6 bg-card rounded-lg shadow-lg transition-transform transform hover:scale-105">
+              <img
+                src={game.imageUrl}
+                alt={game.title}
+                className="w-full h-56 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-xl font-semibold text-primary mb-2">{game.title}</h3>
+              <p className="text-muted mb-4">{game.description}</p>
+              <a
+                href={game.link}
+                className="inline-block text-primary font-semibold hover:underline"
+              >
+                En savoir plus
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

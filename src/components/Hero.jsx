@@ -1,7 +1,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button"; // ou selon ton chemin
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
@@ -63,17 +64,24 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
+            className="flex flex-col sm:flex-row gap-4" 
+            >
+
+            <Link to="/games">
             <Button size="lg" className="px-8 futuristic-border glowing">
               Découvrir nos jeux
             </Button>
+          </Link>
+          
+          <Link to="/studio">
             <Button size="lg" variant="outline" className="px-8 futuristic-border">
               À propos du studio
             </Button>
+          </Link>
           </motion.div>
         </div>
       </div>
+
 
       {/* Scroll indicator */}
       <motion.div
